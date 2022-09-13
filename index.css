@@ -19,10 +19,18 @@ h1 {
 }
 section {
   background-color: #fff;
-  max-width: 500px;
-  margin: auto;
-  margin-top: 1em;
+  max-width: 900px;
+  margin: 5rem auto;
+
   border-radius: 5px;
+}
+article {
+  animation: move 200ms linear;
+}
+@keyframes move {
+  to {
+    height: auto;
+  }
 }
 .tab {
   cursor: pointer;
@@ -43,29 +51,32 @@ svg {
 }
 .tab {
   font-weight: 600;
-
   padding: 0.35em;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgb(202, 196, 196);
 }
-.green {
-  color: #398e3d;
-}
-.red {
-  color: red;
-}
-.yellow {
-  color: rgb(138, 138, 13);
-}
+
 .acordian-content {
   background-color: #eee;
-  padding: 1em;
   border-bottom: 1px solid rgb(212, 209, 209);
   color: rgb(34, 33, 33);
-  display: none;
+  height: 0px;
+  overflow: hidden;
+  transition: height 200ms linear;
+}
+.acordian-content.visible + .group {
+  cursor: auto;
+  background: #000;
 }
 .visible {
-  display: block;
+  padding: 1em;
+  height: auto;
+}
+.rotate {
+  transform: rotate(0.25turn);
+}
+.accordion-icon {
+  transition: transform 100ms linear;
 }
